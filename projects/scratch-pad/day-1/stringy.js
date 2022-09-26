@@ -61,7 +61,7 @@ function toDashCase(string) {
     // YOUR CODE BELOW HERE //
 // create a new string which converts spaces into dases
     let strLower = string.toLowerCase();
-    let newStr = strLower.replace(" ", "-");
+    let newStr = strLower.replaceAll(" ","-");
     return newStr;
     // YOUR CODE ABOVE HERE //
 }
@@ -80,10 +80,25 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
-    
-
+/*
+I: string
+O: return true or false based on fist letter of string paramater and  char parameter
+C: not case sensitve
+E    n/a?
+*/
     // YOUR CODE ABOVE HERE //
+ // convert parameters to uppercase so that result is not case sensitive
+    let strUpper = string.toLowerCase();
+    let charUpper = char.toLowerCase();
+    //compare first letter of strUpper to char upper return true if true
+    if (strUpper[0] == charUpper){
+        return true;
+    }
+    // return false if !true 
+    else{
+        return false;
+    }
+
 }
 
 /**
