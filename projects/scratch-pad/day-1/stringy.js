@@ -232,8 +232,15 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+    if (stringOne.localeCompare(stringTwo) == -1){
+        return -1;
+      }
+      else if (stringOne.localeCompare(stringTwo) == 1){
+        return 1;
+      }
+       else if (stringOne.localeCompare(stringTwo) == 0){
+        return 0;
+       }
 
 
     // YOUR CODE ABOVE HERE //
