@@ -115,7 +115,17 @@ E    n/a?
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
+ // convert parameters to uppercase so that result is not case sensitive
+ let strUpper = string.toLowerCase();
+ let charUpper = char.toLowerCase();
+ //compare last letter of strUpper to char upper return true if true
+ if (strUpper[strUpper.length - 1] == charUpper){
+     return true;
+ }
+ // return false if !true 
+ else{
+     return false;
+ }
 
 
     // YOUR CODE ABOVE HERE //
@@ -125,10 +135,17 @@ function endsWith(string, char) {
  * Given two input Strings, return the Strings concatenated into one.
  *
  * TIP: What's the operator to concatenate two Strings?
- */
+I: two strings
+O: one string that concates the two inputs togther
+C: return one string
+E: ?
+
+*/
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    // create and return one string of stringOne + stringTwo concatenated
+    let newStr = stringOne + stringTwo;
+    return newStr
 
 
     // YOUR CODE ABOVE HERE //
@@ -147,8 +164,9 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
-
-
+    // take arguments in array and out put concotinadted string 
+    let argString = args.join("");
+    return argString; 
     // YOUR CODE ABOVE HERE //
 }
 
@@ -163,7 +181,14 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    // compare strung leghts one and two if one is bigger output one
+    if(stringOne.length > stringTwo.length){
+        return stringOne;
+    }
+    // if two is bigger output two
+    else{
+        return stringTwo;
+    }
 
 
     // YOUR CODE ABOVE HERE //
@@ -175,12 +200,25 @@ function longest(stringOne, stringTwo) {
  * first, and return 0 if they're equal.
  *
  * TIP: How can we compare Strings? Is 'a' greater than or less than 'b'?
- */
+I: two strings
+O: 1 if first string is first in alphabet -1 if second is and 0 if they are equal
+C:
+E: 
+
+
+*/
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
+   // use built in method to compare two strings
+  if (stringOne.localeCompare(stringTwo) == 1){
+    return -1;
+  }
+  else if (stringOne.localeCompare(stringTwo) == -1){
+    return 1;
+  }
+   else if (stringOne.localeCompare(stringTwo) == 0){
+    return 0;
+  } 
     // YOUR CODE ABOVE HERE //
 }
 
