@@ -209,14 +209,16 @@ E:
 */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-   // use built in method to compare two strings
+   // use built in method to compare two strings output -1 if return of method is 1
   if (stringOne.localeCompare(stringTwo) == 1){
     return -1;
   }
+  // return 1 if method returns -1
   else if (stringOne.localeCompare(stringTwo) == -1){
     return 1;
   }
-   else if (stringOne.localeCompare(stringTwo) == 0){
+  // if equal return 0 
+  else if (stringOne.localeCompare(stringTwo) == 0){
     return 0;
   } 
     // YOUR CODE ABOVE HERE //
@@ -232,13 +234,16 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+    // use built in method to compare two strings output -1 if return of method is -1
     if (stringOne.localeCompare(stringTwo) == -1){
         return -1;
       }
+    // return 1 if output of method is 1
       else if (stringOne.localeCompare(stringTwo) == 1){
         return 1;
       }
-       else if (stringOne.localeCompare(stringTwo) == 0){
+      //return zero if output is 0 
+      else if (stringOne.localeCompare(stringTwo) == 0){
         return 0;
        }
 
