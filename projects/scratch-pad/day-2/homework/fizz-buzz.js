@@ -12,16 +12,21 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
-for (let i = 1; i < 101; i++){
+    // create a counter using a loop to create a variable that will increase from 1 - 100
+    for (let i = 1; i < 101; i++){
+    // create a condition using the remader operartor for to print fizzbuzz 
     if (i % 3 == 0 && i % 5 == 0){
         console.log('FizzBuzz');
     }
+    // create a condition using the remader operartor for to print fizz
     else if (i % 3 == 0){
         console.log('Fizz');
     }
+    // create a condition using the remader operartor for to print buzz
     else if (i % 5 == 0){
         console.log('Buzz');
     }
+    // create a default condition that prints the variable i
     else{
         console.log(i);
     }
