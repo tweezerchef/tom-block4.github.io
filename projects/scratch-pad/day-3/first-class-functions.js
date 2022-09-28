@@ -15,7 +15,10 @@ function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
     
-    
+   // return function that tests whether value is greater then base
+   return function(value){
+    return value > base;
+   } 
     
     // YOUR CODE ABOVE HERE //
 }
@@ -41,7 +44,12 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+    let newChar = startsWith.toUpperCase
+    // return function that tests whether a given string starts with charater arg
+    return function(string){
+        let newStr = string.toUpperCase
+
+    }
     
     
     
