@@ -109,25 +109,26 @@ function modifyStrings(strings, modify) {
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
 function allStringsPass(strings, test) {
-    // YOUR CODE BELOW HERE //
-    // create container to store test results
-    let arrFalse = [];
-    // create loop to select strings to test
-    for (let i = 0; i < strings.length; i++){
-        // pass through each string and call function to test them
-        if (test(strings[i]) === false){
-        // return false if evaluates to false
-            arrFalse.push(false);
-        }  
-    }
-    // create conditonal statement that returns true or false
-    if (arrFalse[0] === false){
-        return false;
-    }
-    else{
-        return true
-    }
-    
+    // // YOUR CODE BELOW HERE //
+    // // create container to store test results
+    // let arrFalse = [];
+    // // create loop to select strings to test
+    // for (let i = 0; i < strings.length; i++){
+    //     // pass through each string and call function to test them
+    //     if (test(strings[i]) === false){
+    //     // return false if evaluates to false
+    //         arrFalse.push(false);
+    //     }  
+    // }
+    // // create conditonal statement that returns true or false
+    // if (arrFalse[0] === false){
+    //     return false;
+    // }
+    // else{
+    //     return true
+    // }
+    // wanted to try to do it in an easier way
+    return strings.every(test)
     // YOUR CODE ABOVE HERE //
 }
 

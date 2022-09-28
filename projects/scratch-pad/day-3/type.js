@@ -52,8 +52,15 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
-    
+   // create test that determines if value is an object or array but not null or date
+   //and return true if true 
+    if (typeof value === "object" && value !== null &&  value instanceof Date !== true ){
+        return true;
+    }
+    //otherwise return false
+    else{
+        return false
+    }
     
     
     // YOUR CODE ABOVE HERE //
@@ -80,10 +87,43 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
+    // create test for objects and arrays returning string of either object or array
+    if(typeof value === 'object' && Array.isArray(value) !== true && value !== null &&  value instanceof Date !== true ){
+        return 'object';
+    }
+    // create test for array and return array
+    else if (typeof value === "object" && value !== null &&  value instanceof Date !== true ){
+        return 'array';
+    }
+    // create test for date
+    else if (typeof value === "object" && value !== null && value instanceof Date === true && Array.isArray(value) !== true ){
+        return "date";
+    }
+    //test for null
+    else if (typeof value === "object"){
+        return "null";
+    }
+    //test for string
+    else if (typeof value === "string"){
+        return "string";
+    }
+    // test for undefined
+    else if (typeof value === "undefined"){
+        return "undefined";
+    }
+    //test for number
+    else if (typeof value === "number"){
+        return "number";
+    }
+    //test for boolean
+    else if (typeof value === "boolean"){
+        return "boolean";
+    }
     
-    
-    
-    
+    //test for function
+    else if (typeof value === "function"){
+        return "function";
+    }
     // YOUR CODE ABOVE HERE //
 }
 
