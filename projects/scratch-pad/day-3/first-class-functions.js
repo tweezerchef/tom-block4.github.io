@@ -13,13 +13,10 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
-   // return function that tests whether value is greater then base
+    // return function that tests whether value is greater then base
    return function(value){
     return value > base;
    } 
-    
     // YOUR CODE ABOVE HERE //
 }
 
@@ -31,12 +28,12 @@ function createGreaterThanFilter(base) {
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
     
-    
-    
-    
+    // return function that tests whether base is greater then value
+   return function(value){
+    return value < base;
     // YOUR CODE ABOVE HERE //
 }
-
+}
 /** 
  * Given a startsWith character, which will be a single character, return a 
  * Function that tests whether a given String starts with the startsWith 
@@ -44,15 +41,18 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    let newChar = startsWith.toUpperCase
+    let newChar = startsWith.toUpperCase()
     // return function that tests whether a given string starts with charater arg
     return function(string){
-        let newStr = string.toUpperCase
+        let newStr = string.toUpperCase()
+        if (newStr[0] === newChar){
+            return true
+        }
+        else{
+            return false
+        }
 
     }
-    
-    
-    
     // YOUR CODE ABOVE HERE //
 }
 
@@ -64,9 +64,17 @@ function createStartsWithFilter(startsWith) {
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
     
-    
-    
-    
+    let newChar = endsWith.toUpperCase()
+    // return function that tests whether a given string ends with charater arg
+    return function(string){
+        let newStr = string.toUpperCase()
+        if (newStr[newStr.length - 1] === newChar){
+            return true
+        }
+        else{
+            return false
+        }
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -79,10 +87,15 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    //create empty array to store modified strings
+    let newArr = []
+    // create loop to select strings to modify
+    for (let i = 0; i < strings.length; i++){
+    // pass through each string and call function to modify them
+    newArr.push(modify(strings[i]));
+    }
+    // return new array
+    return newArr
     // YOUR CODE ABOVE HERE //
 }
 
@@ -97,9 +110,23 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    // create container to store test results
+    let arrFalse = [];
+    // create loop to select strings to test
+    for (let i = 0; i < strings.length; i++){
+        // pass through each string and call function to test them
+        if (test(strings[i]) === false){
+        // return false if evaluates to false
+            arrFalse.push(false);
+        }  
+    }
+    // create conditonal statement that returns true or false
+    if (arrFalse[0] === false){
+        return false;
+    }
+    else{
+        return true
+    }
     
     // YOUR CODE ABOVE HERE //
 }
