@@ -21,15 +21,25 @@
  *  b. you'll need a loop, which one is best?
  *  c. you'll wanna make use of the push() method of Array.
  */
-function range(start, end) {
+ function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE GOES ABOVE HERE //
+    // create new empty array to return
+    let newArr = [];
+    //create conditional statement and loop for start > end
+    if (start > end){
+        for (let i = start; i > end -1; i--){
+            newArr.push(i);
+        }
+    }
+    // else loop
+    else{
+        for (let g = start; g < end + 1; g++){
+            newArr.push(g);
+        }
+    }
+return newArr
+     // YOUR CODE GOES ABOVE HERE //
 }
-
 
 
 
