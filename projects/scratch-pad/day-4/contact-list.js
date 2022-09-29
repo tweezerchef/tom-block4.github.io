@@ -35,6 +35,11 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
+    return {
+        id: id,
+        nameFirst: nameFirst,
+        nameLast: nameLast
+    };
 
 } 
 
@@ -43,15 +48,54 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
-        }
+        },
+        // 2. addContact(contact): takes a contact object to be added to the 
+    // *         contact-list. 
+        addContact: function(contact){
+            return contacts.push(contact)
+        },
+        // 3. findContact(fullName): takes a full-name String, like 'Max Gaudin', and 
+        // *         returns the contact object if found in the contacts-list, or, 
+        // *         undefined if the fullName does not match any contacts in the list.
+        findContact: function(fullName){
+            for (let i = 0; i < contacts.length; i++){
+             if (contacts[i].nameFirst + " " + contacts[i].nameLast === fullName){
+                return contacts[i]
+             }
+            }
+        },
+        // 4. removeContact(contact): takes a contact object to be removed from 
+        // *         the contact-list.
+        removeContact: function(contact){
+            contacts.splice(contact, 1);
+        },
+//         5. add a printAllContactNames() Function to your makeContactList() factory. The printAllContactNames() Function should 
+//  *         return a String formated with all the full-names of the separated 
+//  *         with a line-break, like so:
+//  *          
+//  *         myContacts.printAllContactNames(); // => Max Gaudin
+//  *                                                  John Fraboni
+//*                                                  Kaelyn Chresfield
+        printAllContactNames: function(){
+            // create empty string to push names into array
+            let newArr = [];
+            // create a loop that retrives all first names name last names
+            for (let i = 0; i < contacts.length; i++){
+            // push first name and last name into newStr seperated by one space and ending with a line break \n
+            newArr.push(`${contacts[i].nameFirst} ${contacts[i].nameLast}`);
+            }
+         return newArr.join('\n')
+        } 
+
     }
 }
+
 
 
 
