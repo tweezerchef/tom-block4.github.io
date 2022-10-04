@@ -91,9 +91,8 @@ function getRandom(arr){
  //return random 
  return Math.floor(Math.random() * (0, arr.length - 1)) ;
 };
-console.log(getRandom(animals))
+
 let x = getRandom(animals);
-//de
 friends.push(animals[x].name);
 console.log(friends);
 // use bracket notation to add the 'friends' list as
