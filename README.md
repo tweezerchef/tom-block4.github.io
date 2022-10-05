@@ -29,7 +29,7 @@
 4) select bootcamp session
 5) select project you want to submit
 
-
+/console.log(b);
 # First Website & Portfolio Page
 1) index.html will be the file that contains all work for 'First Website'
    a) In the lesson todos, ignore TODO 1
