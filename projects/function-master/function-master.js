@@ -3,7 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-
+  return newarr = Object.values(object);
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +11,11 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+  let arrStr = [];   
+  for(let key in object){
+    arrStr.push(key);
+  }
+  return newStr = arrStr.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +23,13 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    let arrStr = [];   
+    for(let key in object){
+       if (typeof object[key] === 'string'){ 
+        arrStr.push(object[key]);
+    }
+}
+return newStr = arrStr.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,6 +37,12 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
+    if (Array.isArray(collection)){
+        return 'array';
+    }
+    else{
+        return 'object'
+    }
     
 }
 
@@ -35,7 +51,8 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    let newStr = string.charAt(0).toUpperCase() + string.slice(1)
+    return newStr
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -43,7 +60,17 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    // convert string to array
+    let strArray = string.split(" ")
+   // create empty array to push capitalized words into
+   let strArrayNew = [];
+    // loop through each element and uppercase each words first character
+    for(let i = 0; i < strArray.length; i++){
+        strArrayNew.push(strArray[i].charAt(0).toUpperCase() + strArray[i].slice(1));
+    }
+   //convert srtArray to a string and return
+   let newString = strArrayNew.join(" ")
+   return newString;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -51,7 +78,9 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
+//take and object with name property and convert its value to a string
 
+return "Welcome" + " " + object.name.charAt(0).toUpperCase() + object.name.slice(1) + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -59,7 +88,7 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+  return object.name.charAt(0).toUpperCase() + object.name.slice(1) + " is a " + object.species.charAt(0).toUpperCase() + object.species.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -67,7 +96,13 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    //check if object has a noises property
+    if ('noises' in object && object.noises.length !== 0){
+        return object.noises.join(" ");
+    }
+    else{
+        return "there are no noises";
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -75,7 +110,10 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+// convert string to array
+let strNew = string.split(" ");
+// test for word  note: alternativly I could use a loop with === word
+    return strNew.includes(word);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -83,7 +121,9 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+// return a new name in an objects friends array
+  object.friends.push(name);
+  return object
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -91,7 +131,11 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+// turn entire object into an array
+newArr = Object.entries(object);
+// test if array includes name and return results
+flatArray = newArr.flat(2)
+return flatArray.includes(name);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -99,23 +143,42 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+// create list to store all names in a new array
+//   let pplArr = [];
+// // create empty array to store new friends in
+//   let newArr = [];
+// //use a for loop to push all the names into pplArr
+//   for (let i = 0; i < array.length; i++){
+//     pplArr.push(array[i]['name']);
+// // create loop to test for friends
+// //for(let key in array.friends)
+//   //if (array.name )
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function updateObject(object, key, value) {
-
-}
+ function updateObject(object, key, value) {
+// // test if object doesnt have key create key and add value
+  
+object[key] = value;
+return object
+ }
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+// create a loop for the array to seperate each string
+for (let i = 0; i < array.length; i++){
+    //create test and if true remove property that === string
+    if (object.hasOwnProperty(array[i])){
+        delete object[array[i]];
+    }
+}
 }
 
 //////////////////////////////////////////////////////////////////////
