@@ -31,19 +31,40 @@ function fizzBuzz() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(num) {
-//at top of function scope create empty string
-  let chessStr = '';  
-// create loop for number of rows
-for (row = 0; row < num; num ++){
-  // create loop for creating each row
-  for (strRow = 0; strRow < num; strRow ++){
-    
+  //at top of function scope create empty string
+    let chessStr = '';  
+  // create loop for number of rows
+  for (let row = 0; row < num; row++){
+    // create loop for creating each row
+    if (row % 2 === 0){
+    for (let line = 0; line < num; line++){
+      // create conditonal statement to test if row + strRow is even or odd
+      if (line% 2 === 0){
+        chessStr+=" ";
+      }
+      else if (line% 2 !== 0){
+        chessStr+="#";
+      }}
+     //console.log(chessStr)
+    }
+   if (row % 2 !== 0){
+    for (let line = 0; line < num; line++){
+      // create conditonal statement to test if row + strRow is even or odd
+      if (line % 2 === 0){
+        chessStr+="#";
+      }
+      else if (line % 2 !== 0){
+        chessStr+=" ";
+      }}
+     //console.log(chessStr)
+    } 
+    // at end of outer loop create line break
+   chessStr+= "\n";
   }
-}
-
-  // return completed string
-  return chessStr
-}
+  
+    // return completed string
+    console.log(`${chessStr}`)
+  }
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

@@ -143,17 +143,39 @@ return flatArray.includes(name);
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-// create list to store all names in a new array
-//   let pplArr = [];
-// // create empty array to store new friends in
-//   let newArr = [];
-// //use a for loop to push all the names into pplArr
-//   for (let i = 0; i < array.length; i++){
-//     pplArr.push(array[i]['name']);
-// // create loop to test for friends
-// //for(let key in array.friends)
-//   //if (array.name )
-}
+    // create list to store all names in a new array
+    let pplArr = [];
+    // create an array with the names of the friends
+    let friendsArr = []
+    //use a for loop to push all the names into pplArr
+    for (let i = 0; i < array.length; i++){
+     pplArr.push(array[i]['name']);
+    }
+    // create a loop that looks for friends of name
+     for (let j = 0; j < array.length; j++){
+        //create conditon where name property is at name index
+        if(array[j]['name'] === name){
+            friendsArr.push(array[j].friends);
+        }
+     }
+    let flatFrnd = friendsArr.flat()
+    // create a loop to get each friend and compare it to friends array
+     for (let f = 0; f <= pplArr.length; f++){
+        //create nested loop that compares firends to ppl
+        for (e = 0; e <= flatFrnd.length + 1; e++){
+            //create condition that deletes matches
+            if(pplArr[f] == flatFrnd[e]  || name === pplArr[f]){
+                delete pplArr[f];
+            }
+        }
+     } 
+     // let new array === friends array
+    endArray = pplArr.filter(function () {
+        return true
+      });
+      return endArray
+    
+    }
 
 
 //////////////////////////////////////////////////////////////////////
@@ -186,8 +208,20 @@ for (let i = 0; i < array.length; i++){
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
-}
+    for (let i = 0; i < array.length; i++) {
+      for (let j = 0; j < array.length; j++) {
+          // don't delete original
+          if (i !== j) {
+              // delete duplicatess
+              if (array[i] === array[j]) {
+                  array.splice([j], 1);
+                }
+          }
+         
+      }
+  }
+  return array
+  }
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
