@@ -3,7 +3,8 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-  return newarr = Object.values(object);
+  //use .values object method to take objects values and convert to array
+    return newarr = Object.values(object);
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,10 +12,13 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-  let arrStr = [];   
-  for(let key in object){
+  //create empty array tp push keys into
+    let arrStr = [];   
+  //push keys into empty array with for loop
+    for(let key in object){
     arrStr.push(key);
   }
+  // use .join method to return a string from the array
   return newStr = arrStr.join(" ");
 }
 
@@ -23,12 +27,15 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
+   //create empty array to push keys into
     let arrStr = [];   
+    // us for in loop to push values and use coditional statement to make sure those values are strings
     for(let key in object){
        if (typeof object[key] === 'string'){ 
         arrStr.push(object[key]);
     }
 }
+// return string using .join method
 return newStr = arrStr.join(" ");
 }
 
@@ -37,6 +44,7 @@ return newStr = arrStr.join(" ");
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
+    // use Array.isArray to test if it is array and return true if it is
     if (Array.isArray(collection)){
         return 'array';
     }
@@ -51,6 +59,10 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
+    // chain together methods to return a new string with the first letter uppercase
+    // .charAt selects the first character makes a copy then .toUppecase to uppercase
+    // that first character .slice(1) takes the rest of the string, coppies it and the +
+    //operator concatinates it with the uppercased first letter
     let newStr = string.charAt(0).toUpperCase() + string.slice(1)
     return newStr
 }
@@ -87,6 +99,7 @@ return "Welcome" + " " + object.name.charAt(0).toUpperCase() + object.name.slice
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+//using same methods return a string with the Name and Species uppercased
 function profileInfo(object) {
   return object.name.charAt(0).toUpperCase() + object.name.slice(1) + " is a " + object.species.charAt(0).toUpperCase() + object.species.slice(1);
 }
@@ -183,7 +196,7 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
  function updateObject(object, key, value) {
-// // test if object doesnt have key create key and add value
+// // create key if it doesnt exist and and add value
   
 object[key] = value;
 return object
@@ -208,20 +221,39 @@ for (let i = 0; i < array.length; i++){
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-    for (let i = 0; i < array.length; i++) {
-      for (let j = 0; j < array.length; j++) {
-          // don't delete original
-          if (i !== j) {
-              // delete duplicatess
-              if (array[i] === array[j]) {
-                  array.splice([j], 1);
-                }
-          }
+    //no idea why this doesnt work
+//     array.sort();
+//     for (let i = 0; i < array.length; i++) {
+//       for (let j = 0; j < array.length; j++) {
+//           // don't delete original
+//           if (i !== j) {
+//               // delete duplicatess
+//               if (array[i] === array[j]) {
+//                   array.splice([j], 1);
+//                 }
+//           }
          
-      }
-  }
-  return array
-  }
+//       }
+//   }
+//   return array
+// try new way
+// create new array to output non dupe array and object to use as test
+newArr = [];
+testObject = {};
+//create loop to take an element from test array
+for (i = 0; i < array.length; i++){
+    // create test to see if array element alreay exists in object, if not add to object
+    // and newArr
+    if(array[i] in testObject === false){
+        testObject[array[i]] = 'true';
+        newArr.push(array[i]);
+    }
+}  
+//return new array
+console.log(testObject)
+  return newArr;
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
