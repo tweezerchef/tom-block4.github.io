@@ -39,15 +39,34 @@ if (num === 0){
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countChars() {
-
+function countChars(string, char) {
+  //create empty array to store characters that are same as char
+  let charArray = [];
+  // write loop to loop through string and pushes char if ===
+  for (i = 0; i < string.length; i++){
+    if(string[i] === char){
+      charArray.push(char);
+    }
+  }
+// return the length of the array which is populated by char
+  return charArray.length
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countBs() {
+function countBs(string) {
+   //create empty array to store characters that are same as char
+   let charArray = [];
+   // write loop to loop through string and pushes B if === B
+   for (i = 0; i < string.length; i++){
+     if(string[i] === 'B'){
+       charArray.push('B');
+     }
+   }
+ // return the length of the array which is populated by char
+   return charArray.length
 
 }
 
