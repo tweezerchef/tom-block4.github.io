@@ -238,8 +238,8 @@ function dedup(array) {
 //   return array
 // try new way
 // create new array to output non dupe array and object to use as test
-newArr = [];
-testObject = {};
+let newArr = [];
+let testObject = {};
 //create loop to take an element from test array
 for (i = 0; i < array.length; i++){
     // create test to see if array element alreay exists in object, if not add to object
