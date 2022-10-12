@@ -309,7 +309,7 @@ _.filter = function(arr, func){
    if (func(arr[i], i, arr)){
     // return a new array of elements for which calling <function> returned true
     newArr.push(arr[i]);
-}
+   }
  }
     //return new arr 
    return newArr;
@@ -433,10 +433,12 @@ _.map = function(collec, func){
 */
 // create a function "pluck" that takes in an array of objects and a property
 _.pluck = function(arrOfObj, prop){
-    //function call
-    this.map(arrOfObj, function(element){
+    //let new arr = return of .map 
+  let newArr =  _.map(arrOfObj, function(element){
        return element[prop] 
     })
+    // return newArr
+    return newArr
 }        // create a function that returns the value of property from every element in function() {
         
 
@@ -531,6 +533,59 @@ _.every = function(collection, func){
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+// create a function "some" that takes a collection and a function as args
+_.some = function(collec, func){
+    // test if there is a function
+    if(!func){
+        //test if its is an array
+        if (Array.isArray(collec)){
+            // loop through elements in collec if any element is true treturn true
+            for (let i = 0; i < collec.length; i++){
+                if(collec[i] === true){
+                    return true;
+                }
+            }
+        //return false if not
+        return false;
+        }
+        //else if collec is object
+        else{
+            //for in loop for collec
+            for (let key in collec){
+                if (key === true){
+                    return true;
+                }
+            }
+        // else return false
+            return false;
+        }
+
+    }
+    // test for array
+    else if (Array.isArray(collec)){
+        // loop through array
+        for (let i = 0; i < collec.length; i++){
+            // call a func with params = element, index, colec
+            // if any elememt is true return true
+            if(func(collec[i], i, collec) === true){
+                //return true
+                return true;
+            }
+        }
+        //eslse return false
+        return false
+    }
+    else{
+        //loop through object if any return == true return true
+        for (let key in collec){
+            if(func(collec[key], key, collec) === true){
+                return true
+            }
+        }
+        // else return false
+        return false
+    }
+}
 
 
 /** _.reduce
@@ -551,7 +606,25 @@ _.every = function(collection, func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-
+// create function "reduce" with args array, func, seed
+_.reduce = function(arr, func, seed){
+    // check if there is no seed given use first ellement if arr as seed     
+    if (seed === undefined){
+        let preRes = arr[0];
+        for(let i = 1; i < arr.length; i++){
+            preRes = func(preRes, arr[i], i)
+            }
+        return preRes;
+    }
+    else{
+    let preRes = seed
+    // call a fuction for every element of collec using loop using args previous result, element, index
+        for(let i = 0 ; i < arr.length; i++){
+        preRes = func(preRes, arr[i], i)
+        }
+        return preRes;
+    }
+}
 
 /** _.extend
 * Arguments:
@@ -567,6 +640,27 @@ _.every = function(collection, func){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+// create "extend" function that takes in objects as param
+_.extend = function(obj1,...objs){
+ // create a for in loop throug objs key value pair and add to obj1
+ for (let i = 0; i < objs.length; i++){
+    for (let key in objs[i]){
+        obj1[key] = objs[i][key];
+    }
+}
+return obj1;
+}
+ //  for (let key in objs){
+//     obj1[key]; 
+//  }
+// return obj1;
+// }
+// let newobk = {
+//     obj1,
+//     objs};
+// return newobk;
+// }
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
