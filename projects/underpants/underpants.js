@@ -406,7 +406,19 @@ for (let i = 0; i < arr.length; i++){
 _.map = function(collec, func){
     // create return array
     let newArr = [];
-    // if collection is array use for loop to 
+    // if array is array for loop
+    if(Array.isArray(collec)){
+        for (let i = 0; i < collec.length; i++)
+       newArr.push(func(collec[i], i, collec))
+    }
+    // else if array is object use a for in loop to do the same thing
+    else{
+        for (let key in collec){
+            newArr.push(func(collec[key], key, collec))
+        }
+    } 
+  // return new arr
+    return newArr
 }
 
 /** _.pluck
@@ -419,6 +431,16 @@ _.map = function(collec, func){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+// create a function "pluck" that takes in an array of objects and a property
+_.pluck = function(arrOfObj, prop){
+    //function call
+    this.map(arrOfObj, function(element){
+       return element[prop] 
+    })
+}        // create a function that returns the value of property from every element in function() {
+        
+
+  
 
 
 /** _.every
