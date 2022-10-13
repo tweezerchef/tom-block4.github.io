@@ -3,7 +3,7 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require(/* Replace this with the name of your lodown! */);
+var _ = require('underbar');
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -14,24 +14,94 @@ var _ = require(/* Replace this with the name of your lodown! */);
  *
  * 3. We started the first one for you as an example! Make the rest in that style.
  *
- * 4. To test your work, run the following command in your terminal:
+ * 4. To test your work, run the following command in your terminal in workspace directory:
  *
- *    npm start --prefix ./<YOUR_GITHUB_FOLDER/projects/let-s-get-functional
+ *    npm start --prefix ./tom-block4.github.io/projects/let-s-get-functional
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
+// filter
+//map use to return a new array of every value of input transformed
+// reduce iterates through an array to "acumulate a single value"
 var maleCount = function(array) {
-
+    let males = _.filter(array, function(element){return element.gender === 'male'});
+    //console.log(males);
+    return males.length;
 };
+//console.log(maleCount(customers));
 
-var femaleCount;
+// var femaleCount =  function(array) {
+//     //implement reduce to get number of female customers
+//     let females = _.reduce(array, (acc, current) => {
+//         if (current.gender ==='female'){
+//             acc++}
+//         },0}
+    
+    //return number
+// console.log(femaleCount(customers));
+var femaleCount = function(array){
+    // implement reduce to get number of female customers
+    let females = _.reduce(array, function(acc, current){
+    // acc represents what we're accumulating
+    // how do we interact with the acc value and the current object to keep track of the
+    // number of female customers
+    // acc = 0 | current = {name: "Stephanie"}
+    // if current customer is female, add 1 to acc
+        if (current.gender === "female"){
+            acc += 1;
+        }
+        return acc;
+    }, 0);
+    return females;
+};
+//console.log(femaleCount(customers));
 
-var oldestCustomer;
+var oldestCustomer = function(array){
+    let oldestAge = _.reduce(array, function(acc, current){
+        if(acc < current.age){
+            acc = current.age;
+        }
+    return acc
+       
+    }, 0) 
+   // console.log(oldestAge);
+   // let customerObj = _.filter(array, function(ellement){ellement.age === oldestAge});
+    //return customerObj.name;
+    for (let i = 0; i < array.length; i++){
+        if (array[i].age === oldestAge){
+            return array[i].name
+        }
+    }
+} ;
+//console.log(oldestCustomer(customers));
 
-var youngestCustomer;
+var youngestCustomer = function(array){
+    let youngAge = _.reduce(array, function(acc, current){
+        if(!acc < current.age){
+            acc = current.age;
+        }
+    return acc
+       
+    }, 0) 
+    console.log(youngAge);
+   // let customerObj = _.filter(array, function(ellement){ellement.age === oldestAge});
+    //return customerObj.name;
+    for (let i = 0; i < array.length; i++){
+        if (array[i].age === youngAge){
+            return array[i].name
+        }
+    }
+} ;
 
-var averageBalance;
+//console.log(youngestCustomer(customers));
+var averageBalance = function(array){
+  
+}    
+averageBalance(customers);
+
+
+
 
 var firstLetterCount;
 

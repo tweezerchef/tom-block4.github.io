@@ -302,10 +302,10 @@ _.unique = function(array){
 //  create a new function "filter" that takes an arr and a func
 _.filter = function(arr, func){
     // create a new array of elements to return
-    let newArr = [];
+let newArr = [];
 //call <function> for each element in <array> passing the arguments:
 //      the element, it's index, <array> for loop to go through array
- for (let i = 0; i < arr.length; i++){
+for (let i = 0; i < arr.length; i++){
    if (func(arr[i], i, arr)){
     // return a new array of elements for which calling <function> returned true
     newArr.push(arr[i]);
