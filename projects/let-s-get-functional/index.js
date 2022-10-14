@@ -24,6 +24,8 @@ var _ = require('underbar');
 // filter
 //map use to return a new array of every value of input transformed
 // reduce iterates through an array to "acumulate a single value"
+
+
 var maleCount = function(array) {
     let males = _.filter(array, function(element){return element.gender === 'male'});
     //console.log(males);
@@ -78,34 +80,62 @@ var oldestCustomer = function(array){
 
 var youngestCustomer = function(array){
     let youngAge = _.reduce(array, function(acc, current){
-        if(!acc < current.age){
-            acc = current.age;
+        if(current.age < acc.age){
+            acc = current;
         }
-    return acc
+    //console.log('!!!!!', acc);
+        return acc
        
-    }, 0) 
-    console.log(youngAge);
-   // let customerObj = _.filter(array, function(ellement){ellement.age === oldestAge});
-    //return customerObj.name;
-    for (let i = 0; i < array.length; i++){
-        if (array[i].age === youngAge){
-            return array[i].name
+    })
+    return youngAge.name
+} 
+
+console.log(youngestCustomer(customers));
+var averageBalance = function(array){
+//   let newArr = array.replace(/[?,]/g, "")
+// console.log(newArr);
+    let numTotal = _.reduce(array, function(acc, curr){
+        let currStr = curr.balance.replace(/[$,]+/g,"");
+        let currNum = parseFloat(currStr);
+        //console.log(currNum);
+        return acc+= currNum;
+    }, 0)
+    //console.log(numTotal);
+    return numTotal / array.length;
+}    
+console.log(averageBalance(customers));
+
+
+
+//create function that takes in an array and a letter 
+var firstLetterCount = function(arr, letter){
+    // use .filter to push all element.name[0] === letter
+    let letarr = _.filter(arr, function(element){
+        console.log(element.name[0]);
+       return element.name[0].toUpperCase() === letter.toUpperCase();
+    })
+    return letarr.length
+};
+//console.log(firstLetterCount(customers, "A"));
+
+// find how many friends a given customer has that starts with a given letter
+var friendFirstLetterCount = function(arr, cust, letter){
+    // use .filter to push all element.name[0] === letter
+    let letArrFr = _.filter(arr, function(element){
+       if (element.name === cust){
+            return element
+        };
+    })
+    //create empty array to push matchint friends into
+    let frArrTest = [];
+    for (let i = 0; i < letArrFr[0].friends.length; i++){
+        if(letArrFr[0].friends[i].name[0] === letter){
+            frArrTest.push(true);
         }
     }
-} ;
-
-//console.log(youngestCustomer(customers));
-var averageBalance = function(array){
-  
-}    
-averageBalance(customers);
-
-
-
-
-var firstLetterCount;
-
-var friendFirstLetterCount;
+    
+    return frArrTest.length 
+};
 
 var friendsCount;
 
