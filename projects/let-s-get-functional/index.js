@@ -65,9 +65,7 @@ var oldestCustomer = function(array){
             acc = current.age;
         }
     return acc
-       
-    }, 0) 
-   // console.log(oldestAge);
+       }, 0) 
    // let customerObj = _.filter(array, function(ellement){ellement.age === oldestAge});
     //return customerObj.name;
     for (let i = 0; i < array.length; i++){
@@ -90,23 +88,16 @@ var youngestCustomer = function(array){
     return youngAge.name
 } 
 
-console.log(youngestCustomer(customers));
 var averageBalance = function(array){
 //   let newArr = array.replace(/[?,]/g, "")
-// console.log(newArr);
     let numTotal = _.reduce(array, function(acc, curr){
         let currStr = curr.balance.replace(/[$,]+/g,"");
         let currNum = parseFloat(currStr);
-        //console.log(currNum);
         return acc+= currNum;
     }, 0)
-    //console.log(numTotal);
     return numTotal / array.length;
 }    
-console.log(averageBalance(customers));
-
-
-
+//console.log(averageBalance(customers));
 //create function that takes in an array and a letter 
 var firstLetterCount = function(arr, letter){
     // use .filter to push all element.name[0] === letter
@@ -122,14 +113,14 @@ var firstLetterCount = function(arr, letter){
 var friendFirstLetterCount = function(arr, cust, letter){
     // use .filter to push all element.name[0] === letter
     let letArrFr = _.filter(arr, function(element){
-       if (element.name === cust){
+       if (element.name.toUpperCase() === cust.toUpperCase()){
             return element
         };
     })
     //create empty array to push matchint friends into
     let frArrTest = [];
     for (let i = 0; i < letArrFr[0].friends.length; i++){
-        if(letArrFr[0].friends[i].name[0] === letter){
+        if(letArrFr[0].friends[i].name[0].toUpperCase() === letter.toUpperCase()){
             frArrTest.push(true);
         }
     }
