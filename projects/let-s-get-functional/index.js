@@ -178,11 +178,30 @@ topThreeTags(customers);
 // create a summary of genders returned in a object must use reduce
 var genderCount = function(array){
     //create object with male:, female, and nonbinary: all with 0 as value
-    let rtrnOjb = {male: 0, female: 0, 'non-binary': 0};
+    let rtrnObj = {
+    male: _.reduce(array, function(acc, current){
+        if (current.gender === "male"){
+                acc += 1;
+            }
+        return acc}, 0),
+    female: _.reduce(array, function(acc, current){
+            if (current.gender === "female"){
+                    acc += 1;
+                }
+            return acc}, 0),
+    'non-binary': _.reduce(array, function(acc, current){
+        if (current.gender === "non-binary"){
+                acc += 1;
+            }
+        return acc}, 0)
     
+    }
+    return rtrnObj;    
+}
+;    
     
-};
-
+//};
+genderCount(customers);
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
