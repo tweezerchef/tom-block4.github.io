@@ -127,12 +127,61 @@ var friendFirstLetterCount = function(arr, cust, letter){
     
     return frArrTest.length 
 };
+//create a function find the customers names that have a given customer as .friends
+var friendsCount = function(arr, name){
+    // create empty array to push peoples names into
+    let frnWitArr = [];
+    // filter through array and find if name is in array[i].friends array
+    // using nested loop
+    for (let i = 0; i < arr.length; i++){
+        // loop through arr[i].friends to check if name == name and push the 
+        //arr[i].name into frnWitArr
+                for (let j = 0; j < arr[i].friends.length; j++){
+                    //console.log(arr[i].friends[j].name)
+                    if(arr[i].friends[j].name === name){
+                        frnWitArr.push(arr[i].name)
+                    }
+                }
+    }
+    //return frnWitARR
+    return frnWitArr;
+};
+friendsCount(customers, "Doyle Erickson");
+// find the three most common tags in customers asociated tags and output an array
+// of them
+var topThreeTags = function(arr){
+    // create an empty object to push all the tags names and amount into
+    let tagObj = {};
+    // loop through all the elements in the array
+    for (let i = 0; i < arr.length; i++){
+    // create nested array that loops through all the "tags" arrays
+        for (let j = 0; j < arr[i].tags.length; j++){
+            // push all the tags into the tag object. if tag exists already incriment value
+             if (arr[i].tags[j] in tagObj){
+                tagObj[arr[i].tags[j]] = tagObj[arr[i].tags[j]] + 1;
+             }
+             else{
+                tagObj[arr[i].tags[j]] = 1;
+             }
+        }
+}
+//create array of the tagObj Object
+let tagsArr = Object.entries(tagObj);
+// sort array based on 'value' in the nested array
+tagsArr.sort(function(a,b){return a[1] - b[1]});
+// create an array with the last three values of the sorted tagsArr array
+return [tagsArr[tagsArr.length - 1][0], tagsArr[tagsArr.length - 2][0],tagsArr[tagsArr.length - 3][0]]
+//console.log(rtrnArr);
+};
+topThreeTags(customers);
 
-var friendsCount;
-
-var topThreeTags;
-
-var genderCount;
+// create a summary of genders returned in a object must use reduce
+var genderCount = function(array){
+    //create object with male:, female, and nonbinary: all with 0 as value
+    let rtrnOjb = {male: 0, female: 0, 'non-binary': 0};
+    
+    
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
