@@ -308,7 +308,7 @@ if(n < 0){
 if (arr.length > n ){
   return arr[arr.length - 1];
   }
-  //
+  // create the fibonachi number array
   arr.push(arr[arr.length -2] + arr[arr.length - 1]);
   return nthFibo(n, arr);
 };
@@ -396,14 +396,27 @@ var augmentElements = function(array, aug) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
-};
+var minimizeZeroes = function(list, newArr = []) {
+    //base case
+    if (list.length === 0){
+      return newArr
+    }
+     if (list[0] === 0 && list[1] === 0)
+    {
+      return minimizeZeroes(list.slice(1), newArr)
+      }
+    // console.log(newArr)
+    //recursive call
+    newArr.push(list[0])
+    return minimizeZeroes(list.slice(1), newArr)
+    };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, newArr) {
+  //final case
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
