@@ -401,10 +401,12 @@ var minimizeZeroes = function(list, newArr = []) {
     if (list.length === 0){
       return newArr
     }
-     if (list[0] === 0 && list[1] === 0)
+     
+    if (list[0] === 0 && list[1] === 0)
     {
       return minimizeZeroes(list.slice(1), newArr)
-      }
+      
+    }
     // console.log(newArr)
     //recursive call
     newArr.push(list[0])
@@ -415,16 +417,130 @@ var minimizeZeroes = function(list, newArr = []) {
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array, newArr) {
-  //final case
-};
+var alternateSign = function(array, arr = [])  {
+  if(array.length === 0){
+  return arr;
+  }
+  if(array[0] < 0 ){
+  arr.push(array[0] * -1); 
+  }else{
+    arr.push(array[0]);
+  }
+  if(array[1] > 0 ){
+  arr.push(array[1] * -1); 
+    }else{
+      arr.push(array[1]);
+    }
+  
+  return alternateSign(array.slice(2), arr);
+  };
+//end condition
+// if (array.length === 0){
+//   return newArr;
+// }
+// if (array[0] === 0){
+//   return alternateSign(array.slice(1), newArr)  
+// }
+// if(array[0] < 0 && array[1] < 0){
+//   newArr.push(array[0] *= -1);
+
+// }
+// else if(array[0] > 0 && array[1] < 0){
+//    newArr.push(array[0]);
+//  }
+//  else if(array[0] < 0 && array[1] < 0){
+//    newArr.push(array[0] *= -1);
+//  }
+
+//newArr.push(array[0] *= -1)
+//console.log(newArr);
+//recursive call
+//return alternateSign(array.slice(1), newArr)
+
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+//var numToText = function(oldStr, newStr = '', count = 0) {
+// base
+// while (count <= 1){
+// if(oldStr.split(" ").length === 1){
+//   return newStr + oldStr.split(" ")[0]; 
+//   //+ oldStr.trim().split(" ").length.join(" ")
+// }
+// //create a funtion that converts a number to its word equivlient 
+// function changeNum(num){
+//   let strNum
+//   num === '1' ? strNum = 'one'
+//   :num === '2' ? strNum = 'two'
+//   :num === '3' ? strNum = 'three'
+//   :num === '4' ? strNum = 'four'
+//   :num === '5' ? strNum = 'five'
+//   :num === '6' ? strNum = 'six'
+//   :num === '7' ? strNum = 'seven'
+//   :num === '8' ? strNum = 'eigth'
+//   :num === '9' ? strNum = 'nine'
+//   : NaN;
+//   return strNum
+// }
+// //find the index number of first num
+// let inStr = oldStr.search(/\d/);
+// //console.log(inStr);
+// //create a variable with the number to be converted
+// let newNum = oldStr[inStr];
+// //console.log(changeNum('5'));
+// //add the string before the number to newStr plus the return of the function on the number
+// newStr += oldStr.slice(0, inStr - 1) + ' ' + changeNum(newNum);
+// //console.log(numStr);
+// //console.log(newStr);
+// //recursive callback
+// //console.log(oldStr.slice(inStr + 1))
+// count ++
+// numToText(oldStr.slice(inStr + 1), newStr, count)
+
+// }
+var numToText = function(str, line='') {
+  if(str.length === 0){
+    return line;
+  }
+  switch(str[0]){
+    case '1':
+      line += 'one';
+    break;
+    case '2':
+      line += 'two';
+    break; 
+    case '3':
+      line += 'three';
+    break;
+    case '4':
+      line += 'four';
+    break;
+    case '5':
+      line += 'five';
+    break;
+    case '6':
+      line += 'six';
+    break;
+    case '7':
+      line += 'seven';
+    break;
+    case '8':
+      line += 'eigth';
+    break;
+    case '9':
+      line += 'nine';
+    break;
+    case '10':
+      line += 'ten';
+    break;
+    default:
+      line += str[0];
+  }
+return numToText(str.slice(1), line);
 };
 
+console.log(numToText("I have 5 dogs and 6 ponie and 4 people and 8 strui "))
 // *** EXTRA CREDIT ***
 
 // 36. Return the number of times a tag occurs in the DOM.
