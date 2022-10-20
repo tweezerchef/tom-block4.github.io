@@ -4,32 +4,23 @@
 
 function range(start, end, int = 1) {
 var arr = [];
-//if same 
-if(start === end){
+//if same  or less then 0 or undefined return arr
+if(start === end || int < 0 || int === undefined){
    return arr;
  }
- // if  
- if(int !== undefined){
-   if(int < 0){
-     return arr;
-   }
-   for(let i = start; i <= end; i += int){
+//create array
+ for(let i = start; i <= end; i += int){
      arr.push(i);
-  }
- }else
-{
-  for(let i = start; i <= end; i++){
-    arr.push(i);
- }
- }
-return arr;
+  } 
+  //return array 
+  return arr;
 }
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 function sum(arr) {
-  
+ //use .reduce to return sum 
 return arr.reduce(function(sum, el,){
   return sum + el;
 }, 0)
@@ -40,7 +31,7 @@ return arr.reduce(function(sum, el,){
 ////////////////////////////////////////////////////////////////////////////////
 
 function reverseArray(arr, newArr = []) {
-
+//use for each to push the elements in reverse order into array
  arr.forEach(element => newArr.unshift(element));
 return newArr
   }
@@ -50,14 +41,17 @@ return newArr
 ////////////////////////////////////////////////////////////////////////////////
 
 function reverseArrayInPlace(arr) {
-  
- for(let i = 0; i < Math.floor(arr.length / 2); i++){
-  // console.log(arr[i]) 
-  let temp = arr[i];
-  arr[i] = arr[arr.length - 1 - i] 
-  arr[arr.length - 1 - i] = temp
+  // for loop that loops through half on an array if odd Math.floor will round down
+  for(let i = 0; i < Math.floor(arr.length / 2); i++){
+   //create placeholder for element we are removing
+    let temp = arr[i];
+    //replace the element at i with the element opposite i
+    arr[i] = arr[arr.length - 1 - i] 
+    //replace the opposite i with temp
+    arr[arr.length - 1 - i] = temp
  }
-  
+//return modified array
+ return arr;
 }  
 
 
