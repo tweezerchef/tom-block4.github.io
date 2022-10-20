@@ -162,7 +162,7 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
-  
+ // if all the addition is done return 0 
 if (y === 0){
   return 0
 }
@@ -170,7 +170,8 @@ else if (y === 1){
   return x
 }
 if (y > 0){
-return x + multiply(x, y - 1)}
+/// x = 5
+  return x + multiply(x, y - 1)}
 else{
   return -x + multiply(x, y + 1)
 };
@@ -188,6 +189,7 @@ var divide = function(x, y) {
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
 var gcd = function(x, y) {
 };
+
 
 // 15. Write a function that compares each character of two strings and returns true if
 // both are identical.
@@ -212,19 +214,23 @@ else{
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str, arr = []){
+  // return array 
   if (str.length === 0){
     return arr;
   }
-arr.push(str[0]);
+// push into new array
+  arr.push(str[0]);
+//recursive call
 return createArray(str.slice(1), arr);
 };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array, newArr = []) {
+var reverseArr = function(array, newArr = []){
   if (array.length === 0){
     return newArr;
   }
-newArr.unshift(array[0]);
+// put 0 at begening of new array
+  newArr.unshift(array[0]);
 return reverseArr(array.slice(1), newArr);
 };
 
@@ -242,7 +248,7 @@ return buildList(value, length - 1, newArr)
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value, count = 0) {
+var countOccurrence = function(array, value, count = 0){
   if (array.length === 0){
     return count;
   }
@@ -298,17 +304,17 @@ var nthFibo = function(n, arr = [0,1]) {
 // return array index of n when arr.length === n
 //base/edge case if the intial value is 0 return 0
 if(n === 0){
-  return 0
+  return 0;
 }
 //base/edge case 
 if(n < 0){
-  return null
+  return null;
 }
 // if generated fibonachi array has reached n return the number at that position
 if (arr.length > n ){
   return arr[arr.length - 1];
   }
-  // create the fibonachi number array
+// create the fibonachi number array
   arr.push(arr[arr.length -2] + arr[arr.length - 1]);
   return nthFibo(n, arr);
 };
