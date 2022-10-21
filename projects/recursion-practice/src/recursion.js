@@ -162,7 +162,6 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
- // if all the addition is done return 0 
 if (y === 0){
   return 0
 }
@@ -170,7 +169,6 @@ else if (y === 1){
   return x
 }
 if (y > 0){
-/// x = 5
   return x + multiply(x, y - 1)}
 else{
   return -x + multiply(x, y + 1)
