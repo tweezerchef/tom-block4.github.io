@@ -43,8 +43,8 @@
  * in turn where within the same contexts their declared names are stored. There are two ways to "wrap" variables, if one would like to keep them outside of the
  * global scope. In code blocks, which are used in loops and and conditional statements, or in functions. 
  * 
- * Var: all "vars" declared outside of functions will be globally scoped.  The JavaScript compiler,
- * when making its initial pass through the application takes all globally scoped "var" decleration and hoists them into
+ * Var: "vars" declared outside of functions will be globally scoped.  The JavaScript compiler,
+ * when making its initial pass through the application takes all globally scoped "var" deceleration and hoists them into
  * global memoray where there definitions can be accessed at any point durring runtime.  However their assignments will not be availible
  * until after the variable is asssigned in the normal top to bottom fashion. 
  * 
