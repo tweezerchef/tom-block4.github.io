@@ -44,8 +44,9 @@
  * global scope. In code blocks, which are used in loops and and conditional statements, or in functions. 
  * 
  * Var: all "vars" declared outside of functions will be globally scoped.  The JavaScript compiler,
- * when making its initial pass through the application takes all globally scoped "vars" and holds their 
- *
+ * when making its initial pass through the application takes all globally scoped "var" decleration and hoists them into
+ * global memoray where there definitions can be accessed at any point durring runtime.  However their assignments will not be availible
+ * until after the variable is asssigned in the normal top to bottom fashion. 
  * 
  */
 
