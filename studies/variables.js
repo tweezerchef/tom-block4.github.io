@@ -45,8 +45,9 @@
  * 
  * Var: "vars" declared outside of functions will be globally scoped.  The JavaScript compiler,
  * when making its initial pass through the application takes all globally scoped "var" deceleration and hoists them into
- * global memory where there definitions can be accessed at any point durring runtime.  However their assignments will not be availible
- * until after the variable is asssigned in the normal top to bottom fashion. 
+ * global memory where there definitions can be accessed at any point during runtime.  
+ * However their assignments will not be available until after the variable is assigned in 
+ * the normal top to bottom fashion. 
  * 
  */
 
