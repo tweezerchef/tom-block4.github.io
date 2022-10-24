@@ -44,12 +44,53 @@
  * global scope. In code blocks, which are used in loops and and conditional statements, or in functions. 
  * 
  * Var: "vars" declared outside of functions will be globally scoped.  The JavaScript compiler,
- * when making its initial pass through the application takes all globally scoped "var" deceleration and hoists them into
+ * when making its initial pass through the application takes all globally scoped "var" decelerations and hoists them into
  * global memory where there definitions can be accessed at any point during runtime.  
- * However their assignments will not be available until after the variable is assigned in 
- * the normal top to bottom fashion. 
- * 
- */
+ * However their assignments will not be available in the program until after the variable is assigned in 
+ * the normal top to bottom fashion. Vars can be reassigned and redeclare. 
+ */ 
+ var comp = "computer";
+ comp = 6;
+ var comp = "comp";
 
+/** Pre ES6 vars were the only available variable type, since then best practice usually calls for the var keyword not to be used.
+ * In general it is best to not use global variables. For both security and memory issues.
+ *  Instead the two new variable key words "let" and "const" are used.
+ * 
+ * Const: when using the const keyword to create new variables we differentiate the const definitions and assignments as
+ * "constants" which is the what the "const" key word abbreviates. when we use const in the global context, on the first pass of the 
+ * JS interpreter. On the second pass through, the execution phase, if const is declared in the global scope it will be available in 
+ * global memory. How every if it is written inside a code block or function it will be hoisted lexically. 
+ * Some examples 
+ */
+const global = 'available globally';
+function constants(){
+    const locally = 'available locally';
+}
+for (const i = 0; i < 1; i++){
+    console.log('available locally');
+}
+if( global ==='available globally'){
+    const locally = 'locally scoped';
+}
+/**
+ * Constants can not be reassigned or redeclared, but if the constants values are objects or arrays those data types 
+ * can be manipulated. Also as previously discussed constants always need to be assigned
+ * Examples  
+ */
+const str = "string"; // ok
+const str = "another string"; // not ok
+str = "another nother string"; //not ok
+const newStr; //also not ok
+const newNewStr = "ok";
+
+/** 
+ * Let : the let keyword plays a similar role to a const but it can be declared without assignment,
+ * , it cannot be redeclare but it can be reassigned, and like const has the same scoping properties
+ * Examples 
+ */
+let newVar //ok;
+let newVar = "not ok"; //not ok
+newVar = "ok"; //ok
 
 
