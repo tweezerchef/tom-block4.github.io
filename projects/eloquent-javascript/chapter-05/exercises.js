@@ -39,9 +39,32 @@ return true;
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
+function dominantDirection(string) { //Hello!
 
+  //create two arrays to store occurences of ltr and rtl
+  let ltr = [];
+  let rtl = [];
+  //iterate through the input string
+  for (let i = 0; i < string.length; i++){
+    //string[i] = 'H'
+    let script = characterScript(string.charCodeAt(i));
+    if(script !== null){
+      if (script.direction === 'ltr'){
+        ltr.push(script);
+      }
+      else{
+        rtl.push(script);
+      }
+    }
+  }
+  if (ltr.length > rtl.length){
+    return 'ltr';
+  }
+  else{
+    return 'rtl';
+  }
 }
+
 
 // /////////////////////////////////////////////////////////////////////////////
 //  //////////////////////////////////////////////////////
