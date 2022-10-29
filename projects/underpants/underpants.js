@@ -642,7 +642,7 @@ _.reduce = function(arr, func, seed){
 */
 // create "extend" function that takes in objects as param
 _.extend = function(obj1,...objs){
- // create a for in loop throug objs key value pair and add to obj1
+ // create a for in loop through objs key value pair and add to obj1
  for (let i = 0; i < objs.length; i++){
     for (let key in objs[i]){
         obj1[key] = objs[i][key];
