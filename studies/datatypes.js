@@ -17,14 +17,20 @@ Array.isArray(typ); // true
  * Data types are broken down into two catagories, simple and complex data types.
  * All the data types in JavaScript that are not Objects are simple data types
  * Simple data types are immutable, that is they cannot be altered and when copied
- * are copied by value not reference. 
+ * are copied by value not reference.
  * The following are all simple data types
  */
 //Numbers, these numbers are not in a string and are easier to preform math on
-let num = 1237345
+let num = 1237345;
 //Strings are composed of characters enclosed in either ", ', or `, quotes
-let strn = "1234567, numbers in a string"
- //Undefined indicates the absence of value
- let undf;
- console.log(undf) //Undefined
- 
+let strn = "1234567, numbers in a string";
+//Undefined indicates the absence of value
+let undf;
+console.log(undf); //Undefined
+//null indicates the absence of an object it is the only primitive value
+//that returns object when called with typeOf
+console.log(typeof(null)) // 'object
+//NaN is a type that occurs when a mathematical operation cant return a number
+//Infinity and Negative Infinity
+
+
