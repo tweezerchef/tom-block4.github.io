@@ -39,3 +39,17 @@ let arr = ['a', 'b', 'c', 'd', 'e', 'f'];
 for (let i = 0; i < arr.length; i++){
     console.log(arr[i]);
 }// prints 'a', 'b', 'c', 'd', 'e', 'f'
+for (let i = arr.length - 1; i > 0; i--){
+    console.log(arr[i]);
+} // prints 'f','e','d','c','b','a'
+/**
+ * For In Loops
+ * for in loops are use mostly to iterate through an objects
+ * to create on use the 'for' keyword followed with a variable deceleration which will be used
+ * to represent the value of a each key in the object,followed by the 'in' keyword,
+ * followed by the object the loop will iterate over
+ */
+let obj = {a: true, b: false};
+for (let key in obj){
+    console.log(`${key}: ${obj[key]}`)
+}// prints a: true b: false
