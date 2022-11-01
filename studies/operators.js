@@ -85,10 +85,50 @@ y = 6*6 //y = 36
  * Delete can either be use on Object or Array. In an object it can be used
  * to delete a property or key. In an array it can be used to delete the value within
  * an element but the element remains in the idex, it just has no value, which is why  
- * its best to use array methods to do something similar.
+ * its best to use array methods to do something similar. Delete returns true if the property
+ * exists and false if it does not
  */
  const myObj = {h: 4};
  delete myObj.h;
  console.log(myObj) // {}
-
- 
+ /**
+  * typeof the typof operator returns a string of whatever JavaScript "type"
+  * the value is.  Because several different types return object it is sometimes
+  * necessary to use other methods 
+  */
+ let obj = {o : "b"};
+ let arr = ['a', 'b'];
+ let str = "a,b";
+ typeof obj; // 'object'
+ typeof arr; // 'object'
+ typeof str; //string
+ /**
+  * The - operator "precedes its operand and negates it."
+  * it will try to chorus the value succeeding it into a number
+  * 
+  */
+ -"3" // -3
+ -3 // -3
+ -true // -1
+ -false // -0
+/**
+ * Ternary Operator
+ * Ternary operator evaluates a condition ? as true or false and then executes the expression
+ * succeeding it or to the right of the : symbol if false
+ * condition ? ifTrue : ifFalse
+ * it can sometimes be used in place of conditional if, else if, and else statements
+ * for example
+ * if(true){
+ * do this}
+ * else if(true){
+ * do this}
+ * else{
+ * do this}
+ * instead using the ternary operator
+ * ifTrue ? do this
+ * : ifTrue ? do this
+ * : (default/else) do this
+ * 
+ * 
+ * 
+ */
