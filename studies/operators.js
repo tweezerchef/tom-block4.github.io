@@ -71,3 +71,24 @@ y = 6*6 //y = 36
  * return false
  * !: Not: this only takes one value and if it evaluates true return false else return true
  */
+5 == "5"  && 5 === 5 //returns true
+5 == "5" || 5 === 6 //returns true because the first expression returns true even when the second is false
+!5 //returns false because the number 5 evaluates to a truthy expression
+/**
+ * Unary Operators
+ * Unary operators are named as such because they are operations that have only
+ *  one operand.  They tend to be fairly unique in JavaScript as well and 
+ *  preform unique functions that are hard to categorize under one umbrella
+ */
+/**
+ * Delete 
+ * Delete can either be use on Object or Array. In an object it can be used
+ * to delete a property or key. In an array it can be used to delete the value within
+ * an element but the element remains in the idex, it just has no value, which is why  
+ * its best to use array methods to do something similar.
+ */
+ const myObj = {h: 4};
+ delete myObj.h;
+ console.log(myObj) // {}
+
+ 
