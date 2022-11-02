@@ -48,3 +48,34 @@ let ret = close();
 // ret now points to the returned function
 ret(10);// ret now returns 20 it still has access to y even though close
 //is no longer being invoked
+/**
+ * Closures in JavaScript
+ * "In programming languages, closures (also lexical closures or function closures) are techniques for 
+ * implementing lexically scoped name binding in languages with first-class functions. Operationally, 
+ * a closure is a record storing a function[a] together with an environment:[1] a mapping associating each 
+ * free variable of the function (variables that are used locally, but defined in an enclosing scope) with the
+ *  value or reference to which the name was bound when the closure was created.[b]"  
+ * -Wikipedia
+ * A function that uses closures is able to access its parent functions variables even after the 
+ * parent function has closed and is no longer on the call stack 
+ * Example as follows
+ */
+
+function outer(){
+    let a = "outer"
+    return function inner(){
+        console.log(a)
+    }
+}
+let inner = outer();
+inner() //console.logs 'outer'
+
+/**
+ * Scope in JavaScript
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
