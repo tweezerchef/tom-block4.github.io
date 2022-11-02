@@ -72,10 +72,22 @@ inner() //console.logs 'outer'
 
 /**
  * Scope in JavaScript
- * 
- * 
- * 
- * 
- * 
+ * Scope refers to the availability of variables in different contexts.
+ * There are three scopes Global, Function and Block.  Pre ES6 there was only
+ * global and function scope with the only available variable keyword
+ * being 'var', which was and continues to be globally and function scoped.
+ * ES6 included two new keywords let and const, which can be block scoped as well
+ * Some examples as follows 
  */
+
+let y = 'yes';
+if(y === yes){
+    var x = 'no'
+    y = 'no'
+    let z = 'nono'
+}
+console.log(x)//'no' because var is not block scoped it is available globally
+console.log(y)// 'no' because even though l is locally scoped it is able to access
+//  the globaly declared y variable and change it
+console.log(z)//reference error because we are using let z is not available when called 
 
