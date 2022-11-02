@@ -77,6 +77,33 @@ let newObj = {
     method : function(){ console.log("I'm a method")}
 }
 newObj.method()// logs "I'm a method"
-
-
+/**
+ * Copy By Value vs Copy by reference
+ *  All primitive data types are copied by value, that means that when a Copy
+ * is made, by assigning multiple variables to each other, there is a new place
+ * created in memory that holds the value assigned to the variable. All
+ * complex data types are copied by reference. The reference refers to any new variables
+ * that are created reference the originals place in memory.  When you change the values
+ * inside the complex data type it is reflected in all of the variables pointing to it.
+ * 
+ *Copy by Value
+ */
+//initial statement
+let g = 1
+//copy is made
+let h = g
+// h is reassigned to 5
+h = 5
+console.log(h)// 5
+console.log(g)//1 
+//Copy by Reference
+//original statement
+let obj1 = {a : true};
+//copy oj1 one to obj2
+let obj2 = obj1;
+//change obj2
+obj2.a = false;
+console.log(ob1) // {a: false} this reflects the fact that it is copied by reference
+//when a key value is changed on obj2 it points to the same place in memory as obj1
+// therefor the changes will be reflected in both variables
 
