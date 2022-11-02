@@ -13,12 +13,20 @@
  * For loop
  * For loops are generally used it iterate through arrays although they can be used
  * on strings as well.
- * to create a for loop use the 'for' keyword, folowed generall by three parameters in parentheses
- * first assign a variable to the number you would like the loop to being from; then the condition
- * that the loop will continue to run under if they remain true, followed by the the action yould would
- * like the loop to preform on the iterator of each function, folowed by the code block 
+ * To create a for loop we start by making three statements, followed by the block of code we would
+ * like to run on each iteration. 
  * As follows   
  */
+//start: define the variable
+for (let i = 0;
+//stop
+i < 5;
+//update
+i++){
+//codeblock
+console.log('Hi');    
+}
+// Hi, Hi, Hi, Hi  
 for (let i = 0; i < 3; i++){
     console.log(i);
 } //prints 0, 1, 2
