@@ -41,9 +41,15 @@
  * requires an assignment.
  * Hoisting: Hoisting in JavaScript refers to where within a global or local memory context where different variables are accessible from and
  * in turn where within the same contexts their declared names are stored. There are two ways to "wrap" variables, if one would like to keep them outside of the
- * global scope. In code blocks, which are used in loops and and conditional statements, or in functions. 
- * 
- * Var: "vars" declared outside of functions will be globally scoped.  The JavaScript compiler,
+ * global scope. In code blocks, which are used in loops and and conditional statements, or in functions.
+ */
+ console.log(name)//undefined
+ // the variable 'name' has been hoisted but is value has not
+ var name = "tom"
+ console.log(name)// "tom" 
+ // the variable name has been hoisted and its value has been as well  
+ 
+/* Var: "vars" declared outside of functions will be globally scoped.  The JavaScript compiler,
  * when making its initial pass through the application takes all globally scoped "var" decelerations and hoists them into
  * global memory where there definitions can be accessed at any point during runtime.  
  * However their assignments will not be available in the program until after the variable is assigned in 
@@ -51,8 +57,9 @@
  */ 
  var comp = "computer";
  comp = 6;
+ console.log(comp) // 6
  var comp = "comp";
-
+console.log(comp) //"comp"
 /** Pre ES6 vars were the only available variable type, since then best practice usually calls for the var keyword not to be used.
  * In general it is best to not use global variables. For both security and memory issues.
  *  Instead the two new variable key words "let" and "const" are used.
@@ -67,12 +74,14 @@ const global = 'available globally';
 function constants(){
     const locally = 'available locally';
 }
+console.log(locally) //reference error locally is not defined
 for (const i = 0; i < 1; i++){
     console.log('available locally');
 }
 if( global ==='available globally'){
     const locally = 'locally scoped';
 }
+console.log(locally) //reference error locally is not defined
 /**
  * Constants can not be reassigned or redeclared, but if the constants values are objects or arrays those data types 
  * can be manipulated. Also as previously discussed constants always need to be assigned
